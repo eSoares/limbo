@@ -23,6 +23,11 @@ PYTHON3 = sys.version_info[0] > 2
 
 logger = logging.getLogger(__name__)
 
+if not PYTHON3:
+    logger.warn("You're running limbo in a soon to be deprecated version. "
+                "If you want the support of Python2 to continue, please manifest it in this issue: "
+                "https://github.com/llimllib/limbo/issues/161")
+
 
 class InvalidPluginDir(Exception):
     def __init__(self, plugindir):
